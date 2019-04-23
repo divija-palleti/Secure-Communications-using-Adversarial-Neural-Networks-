@@ -138,6 +138,16 @@ class CryptoNet(object):
         print(bob_decrypt_error,'b')
         print(eve_decrypt_error,'e')
         return bob_decrypt_error, eve_decrypt_error
+    
+    
+    def predict(self,msg_val,key_val):
+        bob_decrypt_error, eve_decrypt_error = 1., 1.
+        _,bob_out,decrypt_err_bob= self.sess.run([self.bob_optimizer,self.bob_output,self.decrypt_err_bob],
+                                               feed_dict={self.msg: msg_val, self.key: key_val})
+        _,eve_out,decrypt_err = self.sess.run([self.eve_optimizer,self.eve_output,self.decrypt_err_eve],
+                                               feed_dict={self.msg: msg_val, self.key: key_val})
+        return bob_out,eve_out
+      
 
     def plot_errors(self):
         """
