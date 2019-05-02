@@ -164,7 +164,7 @@ class CryptoNet(object):
 #         plt.subplot(1,2,2)
         axi.plot(self.eve_errors)
         axi.legend(['bob','eve'])
-        plt.xlabel('no of times_eve')
+        plt.xlabel('no of epochs')
         plt.ylabel('Lowest Decryption error achieved')
 #         plt.legend(['bob', 'eve'])
 #         plt.xlabel('no of times')
